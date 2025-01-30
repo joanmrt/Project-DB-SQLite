@@ -62,5 +62,15 @@ public class MyOpenHelper extends SQLiteOpenHelper {
         return commentArrayList;
     }
 
+    public void removeComment(Comment comment) {
+        try {
+            String[] args = {comment.getName(), comment.getBody() };
+             SQLiteDatabase db = this.getWritableDatabase();
+             db.execSQL("delete from comment where name=? and body=?", args);
+             db.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
