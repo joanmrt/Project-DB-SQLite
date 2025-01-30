@@ -33,14 +33,6 @@ public class MainActivity extends AppCompatActivity {
         Spinner commentSpinner = findViewById(R.id.comment_spinner);
         TextView bodyDisplay = findViewById(R.id.text_body_display);
 
-//        ArrayList<Comment> arrayList = openHelper.getComments();
-//
-//        ArrayAdapter<Comment> adapter = new ArrayAdapter<>(
-//                this, android.R.layout.simple_spinner_item, arrayList);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//
-//        commentSpinner.setAdapter(adapter);
-
         updateSpinnerData(openHelper, commentSpinner);
 
         Button crearButton = findViewById(R.id.button_crear);
@@ -97,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateSpinnerData(MyOpenHelper openHelper, Spinner commentSpinner) {
-        ArrayList<Comment> updatedList = openHelper.getComments(); // Fetch updated list
+        ArrayList<Comment> updatedList = openHelper.getComments();
 
         ArrayAdapter<Comment> newAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item, updatedList);
         newAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        commentSpinner.setAdapter(newAdapter); // Set the new adapter
+        commentSpinner.setAdapter(newAdapter);
     }
 
 }
